@@ -5,15 +5,13 @@ import com.tenniscourts.guests.Guest;
 import com.tenniscourts.schedules.Schedule;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Builder.Default;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
@@ -31,7 +29,7 @@ public class Reservation extends BaseEntity<Long> {
     @OneToOne
     private Guest guest;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @NotNull
     private Schedule schedule;
 
@@ -39,6 +37,7 @@ public class Reservation extends BaseEntity<Long> {
     private BigDecimal value;
 
     @NotNull
+    @Default
     private ReservationStatus reservationStatus = ReservationStatus.READY_TO_PLAY;
 
     private BigDecimal refundValue;

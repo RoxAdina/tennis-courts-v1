@@ -3,5 +3,7 @@ package com.tenniscourts.reservations;
 public enum ReservationStatus {
   READY_TO_PLAY,
   CANCELLED,
-  RESCHEDULED
+  RESCHEDULED,
+  NOT_SHOW,
+  FULFILLED
 }

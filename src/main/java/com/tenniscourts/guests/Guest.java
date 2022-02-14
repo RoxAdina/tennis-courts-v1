@@ -29,4 +29,14 @@ public class Guest extends BaseEntity<Long> {
   @NotNull
   private String name;
 
+  @Column
+  private String email;
+
+  @Column
+  @NotNull
+  private String phoneNumber;
+
+  @Column
+  @NotNull
+  private boolean isActive;
 }

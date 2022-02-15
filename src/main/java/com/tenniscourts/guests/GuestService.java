@@ -2,6 +2,7 @@ package com.tenniscourts.guests;
 
 import com.tenniscourts.exceptions.EntityNotFoundException;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,8 +11,9 @@ import java.util.List;
 @AllArgsConstructor
 public class GuestService {
 
+    @Autowired
     private final GuestRepository guestRepository;
-
+    @Autowired
     private final GuestMapper guestMapper;
 
     public GuestDTO addGuest(CreateGuestRequestDTO createGuestRequestDTO) {

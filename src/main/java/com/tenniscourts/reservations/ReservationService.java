@@ -5,6 +5,7 @@ import com.tenniscourts.exceptions.EntityNotFoundException;
 import com.tenniscourts.guests.GuestRepository;
 import com.tenniscourts.schedules.ScheduleRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -15,9 +16,13 @@ import java.util.List;
 @AllArgsConstructor
 public class ReservationService {
 
+    @Autowired
     private final ReservationMapper reservationMapper;
+    @Autowired
     private final ReservationRepository reservationRepository;
+    @Autowired
     private final GuestRepository guestRepository;
+    @Autowired
     private final ScheduleRepository scheduleRepository;
 
     public ReservationDTO bookReservation(CreateReservationRequestDTO createReservationRequestDTO) {

@@ -4,6 +4,7 @@ import com.tenniscourts.exceptions.AlreadyExistsEntityException;
 import com.tenniscourts.exceptions.EntityNotFoundException;
 import com.tenniscourts.tenniscourts.TennisCourtRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -13,10 +14,11 @@ import java.util.List;
 @AllArgsConstructor
 public class ScheduleService {
 
+    @Autowired
     private final ScheduleRepository scheduleRepository;
-
+    @Autowired
     private final TennisCourtRepository tennisCourtRepository;
-
+    @Autowired
     private final ScheduleMapper scheduleMapper;
 
     public ScheduleDTO addSchedule(CreateScheduleRequestDTO createScheduleRequestDTO) {
